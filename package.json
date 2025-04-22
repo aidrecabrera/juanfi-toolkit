@@ -1,0 +1,15 @@
+{
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "test": "vitest run",
+    "typecheck": "tsc -b packages/api packages/hotspot"
+  },
+  "devDependencies": {
+    "typescript": "5.8.3",
+    "vitest": "3.1.2"
+  }
+}
