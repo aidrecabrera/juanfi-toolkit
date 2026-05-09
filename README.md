@@ -15,7 +15,7 @@
 [![npm version](https://img.shields.io/npm/v/@svene/juanfi-admin.svg)](https://www.npmjs.com/package/@svene/juanfi-admin)
 [![npm downloads](https://img.shields.io/npm/dm/@svene/juanfi-admin.svg)](https://www.npmjs.com/package/@svene/juanfi-admin)
 
-TypeScript helpers for JuanFI hotspot pages and vendo integrations.
+TypeScript helpers for [JuanFi hotspot](https://github.com/ivanalayan15/JuanFi/tree/master/JuanFi-nodemcu) pages and vendo integrations.
 
 Use this when customizing a JuanFI Piso WiFi setup and you want typed wrappers instead of loose `fetch()` calls and copied page scripts.
 
