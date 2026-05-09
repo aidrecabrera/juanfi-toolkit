@@ -9,7 +9,7 @@
     "typecheck": "tsc -b packages/api packages/hotspot"
   },
   "devDependencies": {
-    "typescript": "5.8.3",
-    "vitest": "3.1.2"
+    "typescript": "latest",
+    "vitest": "latest"
   }
 }
