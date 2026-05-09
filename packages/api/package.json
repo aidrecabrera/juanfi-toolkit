@@ -1,18 +1,24 @@
 {
   "name": "@juanfi/api",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "type": "module",
   "sideEffects": false,
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "browser": "./dist/juanfi-api.min.js",
+  "types": "./dist/index.d.mts",
+  "unpkg": "./dist/juanfi-api.min.js",
+  "jsdelivr": "./dist/juanfi-api.min.js",
+  "files": ["dist"],
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js"
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
     }
   },
   "scripts": {
-    "build": "tsc -p tsconfig.json",
+    "build": "npx tsdown && cp dist/juanfi-api.bundle.iife.js dist/juanfi-api.min.js && cp dist/juanfi-api.bundle.iife.js.map dist/juanfi-api.min.js.map && cp dist/juanfi-api.min.js dist/juanfi-api.min.js.map ../../public/js/",
     "test": "vitest run"
   }
 }
