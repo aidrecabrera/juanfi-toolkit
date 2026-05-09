@@ -1,4 +1,7 @@
-# @juanfi/api
+# @svene/juanfi-api
+
+[![npm version](https://img.shields.io/npm/v/@svene/juanfi-api.svg)](https://www.npmjs.com/package/@svene/juanfi-api)
+[![npm downloads](https://img.shields.io/npm/dm/@svene/juanfi-api.svg)](https://www.npmjs.com/package/@svene/juanfi-api)
 
 Typed client for JuanFI vendo endpoints.
 
@@ -7,13 +10,13 @@ Use this when you need to call the vendo directly from a custom app, server scri
 ## install
 
 ```sh
-npm install @juanfi/api
+npm install @svene/juanfi-api
 ```
 
 ## quickstart
 
 ```ts
-import { createJuanFiApi } from '@juanfi/api';
+import { createJuanFiApi } from '@svene/juanfi-api';
 
 const api = createJuanFiApi({
   vendoIp: '10.1.0.41',
@@ -220,7 +223,7 @@ Current parsing:
 ## CDN
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@juanfi/api@0.1.0/dist/index.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@svene/juanfi-api@0.1.1/dist/juanfi-api.min.js"></script>
 ```
 
 Browser global:
@@ -234,7 +237,7 @@ const api = JuanFiApi.createJuanFiApi({
 Download:
 
 ```sh
-curl -L -o juanfi-api.js https://cdn.jsdelivr.net/npm/@juanfi/api@0.1.0/dist/index.iife.js
+curl -L -o juanfi-api.js https://cdn.jsdelivr.net/npm/@svene/juanfi-api@0.1.1/dist/juanfi-api.min.js
 ```
 
 Do not use `latest` in production. Always pin the version.
@@ -242,6 +245,6 @@ Do not use `latest` in production. Always pin the version.
 ## scripts
 
 ```sh
-npm run test -w @juanfi/api
-npm run build -w @juanfi/api
+npm run test -w @svene/juanfi-api
+npm run build -w @svene/juanfi-api
 ```

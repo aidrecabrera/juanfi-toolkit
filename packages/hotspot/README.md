@@ -1,4 +1,7 @@
-# @juanfi/hotspot
+# @svene/juanfi-hotspot
+
+[![npm version](https://img.shields.io/npm/v/@svene/juanfi-hotspot.svg)](https://www.npmjs.com/package/@svene/juanfi-hotspot)
+[![npm downloads](https://img.shields.io/npm/dm/@svene/juanfi-hotspot.svg)](https://www.npmjs.com/package/@svene/juanfi-hotspot)
 
 Browser-side helpers for custom JuanFI hotspot pages.
 
@@ -7,13 +10,13 @@ Use this inside hotspot pages when handling voucher login, coin insertion, e-loa
 ## install
 
 ```sh
-npm install @juanfi/hotspot
+npm install @svene/juanfi-hotspot
 ```
 
 ## voucher login
 
 ```ts
-import { loginWithVoucher } from '@juanfi/hotspot';
+import { loginWithVoucher } from '@svene/juanfi-hotspot';
 
 const form = document.querySelector<HTMLFormElement>('#sendin');
 
@@ -45,7 +48,7 @@ loginWithVoucher({
 ## member login
 
 ```ts
-import { loginWithMember } from '@juanfi/hotspot';
+import { loginWithMember } from '@svene/juanfi-hotspot';
 
 const sendinForm = document.querySelector<HTMLFormElement>('#sendin');
 const loginForm = document.querySelector<HTMLFormElement>('#login');
@@ -67,8 +70,8 @@ loginWithMember({
 `createCoinFlow` starts top-up, polls coin status, saves voucher state, and calls UI hooks.
 
 ```ts
-import { createCoinFlow } from '@juanfi/hotspot';
-import { createJuanFiApi } from '@juanfi/api';
+import { createCoinFlow } from '@svene/juanfi-hotspot';
+import { createJuanFiApi } from '@svene/juanfi-api';
 
 const api = createJuanFiApi({
   vendoIp: '10.1.0.41',
@@ -131,8 +134,8 @@ await flow.save();
 `createLoadFlow` manages product loading, mobile number entry, product selection, coin polling, and load completion.
 
 ```ts
-import { createLoadFlow } from '@juanfi/hotspot';
-import { createJuanFiApi } from '@juanfi/api';
+import { createLoadFlow } from '@svene/juanfi-hotspot';
+import { createJuanFiApi } from '@svene/juanfi-api';
 
 const api = createJuanFiApi({
   vendoIp: '10.1.0.41',
@@ -193,7 +196,7 @@ console.log(state.selectedProduct);
 ## selected vendo
 
 ```ts
-import { selectVendo } from '@juanfi/hotspot';
+import { selectVendo } from '@svene/juanfi-hotspot';
 
 const selected = selectVendo({
   isMultiVendo: true,
@@ -263,7 +266,7 @@ const flow = createCoinFlow({
 ## CDN
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@juanfi/hotspot@0.1.0/dist/index.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@svene/juanfi-hotspot@0.1.1/dist/juanfi-hotspot.min.js"></script>
 ```
 
 Browser global:
@@ -279,7 +282,7 @@ JuanFiHotspot.loginWithVoucher({
 Download:
 
 ```sh
-curl -L -o juanfi-hotspot.js https://cdn.jsdelivr.net/npm/@juanfi/hotspot@0.1.0/dist/index.iife.js
+curl -L -o juanfi-hotspot.js https://cdn.jsdelivr.net/npm/@svene/juanfi-hotspot@0.1.1/dist/juanfi-hotspot.min.js
 ```
 
 Do not use `latest` in production. Always pin the version.
@@ -287,6 +290,6 @@ Do not use `latest` in production. Always pin the version.
 ## scripts
 
 ```sh
-npm run test -w @juanfi/hotspot
-npm run build -w @juanfi/hotspot
+npm run test -w @svene/juanfi-hotspot
+npm run build -w @svene/juanfi-hotspot
 ```

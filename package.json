@@ -12,5 +12,6 @@
     "tsdown": "^0.22.0",
     "typescript": "latest",
     "vitest": "latest"
-  }
+  },
+  "version": "0.0.1"
 }

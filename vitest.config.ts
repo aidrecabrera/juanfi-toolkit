@@ -4,8 +4,8 @@ import { defineConfig } from 'vitest/config';
 export default defineConfig({
   resolve: {
     alias: {
-      '@juanfi/api': fileURLToPath(new URL('./packages/api/src/index.ts', import.meta.url)),
-      '@juanfi/hotspot': fileURLToPath(new URL('./packages/hotspot/src/index.ts', import.meta.url)),
+      '@svene/juanfi-api': fileURLToPath(new URL('./packages/api/src/index.ts', import.meta.url)),
+      '@svene/juanfi-hotspot': fileURLToPath(new URL('./packages/hotspot/src/index.ts', import.meta.url)),
     },
   },
   test: {

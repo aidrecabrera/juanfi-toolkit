@@ -1,13 +1,18 @@
 # juanfi-toolkit
 
+[![npm version](https://img.shields.io/npm/v/@svene/juanfi-api.svg)](https://www.npmjs.com/package/@svene/juanfi-api)
+[![npm downloads](https://img.shields.io/npm/dm/@svene/juanfi-api.svg)](https://www.npmjs.com/package/@svene/juanfi-api)
+[![npm version](https://img.shields.io/npm/v/@svene/juanfi-hotspot.svg)](https://www.npmjs.com/package/@svene/juanfi-hotspot)
+[![npm downloads](https://img.shields.io/npm/dm/@svene/juanfi-hotspot.svg)](https://www.npmjs.com/package/@svene/juanfi-hotspot)
+
 TypeScript helpers for JuanFI hotspot pages and vendo integrations.
 
 Use this when customizing a JuanFI Piso WiFi setup and you want typed wrappers instead of loose `fetch()` calls and copied page scripts.
 
 ## packages
 
-- `@juanfi/api`: calls JuanFI vendo endpoints
-- `@juanfi/hotspot`: handles browser-side hotspot flows
+- `@svene/juanfi-api`: calls JuanFI vendo endpoints
+- `@svene/juanfi-hotspot`: handles browser-side hotspot flows
 
 ## install
 
@@ -25,13 +30,13 @@ npm run typecheck
 Build packages:
 
 ```sh
-npm run build -w @juanfi/api
-npm run build -w @juanfi/hotspot
+npm run build -w @svene/juanfi-api
+npm run build -w @svene/juanfi-hotspot
 ```
 
 ## package overview
 
-### `@juanfi/api`
+### `@svene/juanfi-api`
 
 Low-level client for vendo calls:
 
@@ -46,7 +51,7 @@ Low-level client for vendo calls:
 - start and finish e-load
 - read voucher files
 
-### `@juanfi/hotspot`
+### `@svene/juanfi-hotspot`
 
 Browser-side helpers for hotspot pages:
 
@@ -64,7 +69,7 @@ Browser-side helpers for hotspot pages:
 ## quick example
 
 ```ts
-import { createJuanFiApi } from '@juanfi/api';
+import { createJuanFiApi } from '@svene/juanfi-api';
 
 const api = createJuanFiApi({
   vendoIp: '10.1.0.41',
