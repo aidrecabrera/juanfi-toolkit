@@ -1,7 +1,7 @@
 <p>
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="./docs/logo-dark.svg">
-    <source media="(prefers-color-scheme: light)" srcset="./docs/logo-light.svg">
+    <source media="(prefers-color-scheme: dark)" srcset="./assets/juanfi-enhanced.svg">
+    <source media="(prefers-color-scheme: light)" srcset="./assets/juanfi-enhanced.svg">
     <img src="./assets/juanfi-enhanced.svg" width="160" alt="TiniTel logo">
   </picture>
 </p>
