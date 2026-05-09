@@ -140,6 +140,8 @@ function binl2hex(binarray: readonly number[]): string {
   return str;
 }
 
+// md5 input bytes are low 8 bits of each JS code unit (charCodeAt). Fine for ascii CHAP passwords,
+// wrong encoding if vouchers ever used non-latin1 BMP chars vs what RouterOS hashes
 export function hexMd5(value: string): string {
   return binl2hex(coreMd5(str2binl(value)));
 }

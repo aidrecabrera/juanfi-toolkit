@@ -16,6 +16,7 @@ export function pauseTime(input: {
   const voucher = input.voucher ?? storage.readValue('activeVoucher') ?? '';
   storage.saveValue('isPaused', '1');
   storage.saveValue(`${voucher}remain`, input.remainTime);
+  // storage writes finish before submit navigates away. LS/cookie APIs are sync
   input.logoutForm.submit();
 }
 

@@ -8,6 +8,7 @@ export function createCore(options: {
 }): ApiCore {
   return {
     baseUrl: normalizeBaseUrl(options.vendoIp),
+    // fetch must keep globalThis as receiver. bare globalThis.fetch breaks when invoked
     fetch: options.fetch ?? globalThis.fetch.bind(globalThis),
     timeoutMs: options.timeoutMs ?? 10_000,
   };
@@ -38,6 +39,7 @@ export async function getArrayBuffer(core: ApiCore, path: string, query?: Record
 }
 
 export async function getRelativeText(core: ApiCore, path: string): Promise<string> {
+  // path is passed straight to fetch. relative URLs use document origin, not core.baseUrl
   const response = await request(core, path, { method: 'GET' });
   return response.text();
 }
@@ -53,6 +55,8 @@ export async function postForm(core: ApiCore, path: string, data: Record<string,
 
   const contentType = response.headers.get('content-type') ?? '';
   const text = await response.text();
+  // vendo sometimes returns JSON without json content-type. looksLikeJson catches that
+  // JSON.parse throws on truncated bodies. callers see that as failed request
   if (contentType.includes('application/json') || looksLikeJson(text)) {
     return JSON.parse(text);
   }

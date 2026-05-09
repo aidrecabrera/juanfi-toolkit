@@ -6,6 +6,7 @@ export function saveValue(key: string, value: string): void {
     storage.setItem(key, value);
     return;
   }
+  // cookie path=/ fallback. different limits than LS and cookies ride http requests
   setCookie(key, value, 364);
 }
 
@@ -36,6 +37,7 @@ export const removeStorageValue = removeValue;
 
 function getLocalStorage(): Storage | null {
   try {
+    // SecurityError or denied storage in some captive/private iframe cases
     return globalThis.localStorage ?? null;
   } catch {
     return null;

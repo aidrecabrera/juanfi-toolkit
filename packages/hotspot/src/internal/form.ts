@@ -9,6 +9,7 @@ export function getFormValue(form: HTMLFormElement, name: string): string {
 }
 
 export function submitForm(form: HTMLFormElement): void {
+  // native submit() skips the submit event. onsubmit handlers do not run
   form.submit();
 }
 
