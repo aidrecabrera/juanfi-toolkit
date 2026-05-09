@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JuanFI</title>
+<script src="/js/juanfi-api.min.js"></script>
+<script src="/js/juanfi-hotspot.min.js"></script>
+</head>
+<body>
+
+<form id="sendin" method="post">
+  <input type="hidden" name="username">
+  <input type="hidden" name="password">
+</form>
+
+<form id="logout" method="post" action="/logoff">
+  <input type="hidden" name="username">
+  <input type="hidden" name="logout">
+</form>
+
+<section id="login">
+  <h2>Login</h2>
+  <div id="voucher-login">
+    <input type="text" id="voucher-input" placeholder="Voucher code">
+    <button id="login-btn">Connect</button>
+  </div>
+  <details>
+    <summary>Member login</summary>
+    <form id="member-form">
+      <input type="text" name="username" placeholder="Username">
+      <input type="password" name="password" placeholder="Password">
+      <button type="submit">Login</button>
+    </form>
+  </details>
+</section>
+
+<section id="active" hidden>
+  <p id="status"></p>
+  <p><a id="pause-link" href="#">Pause</a></p>
+  <p><a id="logout-link" href="#">Logout</a></p>
+</section>
+
+<script>
+(function () {
+  var params = new URLSearchParams(location.search);
+  var mac = params.get('mac') || '';
+  var ip = params.get('ip') || '';
+  var chapId = params.get('chap-id') || undefined;
+  var chapChallenge = params.get('chap-challenge') || undefined;
+  var loginUrl = params.get('link-login-only') || '/login';
+  var sendin = document.getElementById('sendin');
+  var logoutForm = document.getElementById('logout');
+  var loginSection = document.getElementById('login');
+  var activeSection = document.getElementById('active');
+  var statusEl = document.getElementById('status');
+  var voucherInput = document.getElementById('voucher-input');
+  var loginBtn = document.getElementById('login-btn');
+  var memberForm = document.getElementById('member-form');
+  var pauseLink = document.getElementById('pause-link');
+  var logoutLink = document.getElementById('logout-link');
+
+  sendin.action = loginUrl;
+  sendin.querySelector('[name="username"]').value = mac;
+
+  var activeVoucher = JuanFiHotspot.readValue('activeVoucher');
+  if (activeVoucher) {
+    var validity = JuanFiHotspot.fallbackValidity({ voucher: activeVoucher });
+    if (validity.type === 'date') {
+      loginSection.hidden = true;
+      activeSection.hidden = false;
+      statusEl.textContent = 'Active session';
+    }
+  }
+
+  loginBtn.addEventListener('click', function () {
+    var voucher = voucherInput.value.trim();
+    if (!voucher) return;
+    JuanFiHotspot.loginWithVoucher({
+      form: sendin,
+      voucher: voucher,
+      chapId: chapId,
+      chapChallenge: chapChallenge,
+      loginOption: 1,
+      mac: mac,
+      macAsVoucherCode: voucher === '',
+    });
+  });
+
+  memberForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    JuanFiHotspot.loginWithMember({
+      sendinForm: sendin,
+      loginForm: memberForm,
+      chapId: chapId,
+      chapChallenge: chapChallenge,
+    });
+  });
+
+  pauseLink.addEventListener('click', function (e) {
+    e.preventDefault();
+    JuanFiHotspot.pauseTime({
+      logoutForm: logoutForm,
+      remainTime: '0',
+    });
+  });
+
+  logoutLink.addEventListener('click', function (e) {
+    e.preventDefault();
+    JuanFiHotspot.logoutUser({ form: logoutForm });
+  });
+})();
+</script>
+
+</body>
+</html>
