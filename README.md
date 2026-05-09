@@ -4,6 +4,8 @@
 [![npm downloads](https://img.shields.io/npm/dm/@svene/juanfi-api.svg)](https://www.npmjs.com/package/@svene/juanfi-api)
 [![npm version](https://img.shields.io/npm/v/@svene/juanfi-hotspot.svg)](https://www.npmjs.com/package/@svene/juanfi-hotspot)
 [![npm downloads](https://img.shields.io/npm/dm/@svene/juanfi-hotspot.svg)](https://www.npmjs.com/package/@svene/juanfi-hotspot)
+[![npm version](https://img.shields.io/npm/v/@svene/juanfi-admin.svg)](https://www.npmjs.com/package/@svene/juanfi-admin)
+[![npm downloads](https://img.shields.io/npm/dm/@svene/juanfi-admin.svg)](https://www.npmjs.com/package/@svene/juanfi-admin)
 
 TypeScript helpers for JuanFI hotspot pages and vendo integrations.
 
@@ -11,8 +13,9 @@ Use this when customizing a JuanFI Piso WiFi setup and you want typed wrappers i
 
 ## packages
 
-- `@svene/juanfi-api`: calls JuanFI vendo endpoints
+- `@svene/juanfi-api`: calls JuanFI vendo endpoints (portal-side)
 - `@svene/juanfi-hotspot`: handles browser-side hotspot flows
+- `@svene/juanfi-admin`: typed client for the `/admin/api/*` routes
 
 ## install
 
@@ -32,6 +35,7 @@ Build packages:
 ```sh
 npm run build -w @svene/juanfi-api
 npm run build -w @svene/juanfi-hotspot
+npm run build -w @svene/juanfi-admin
 ```
 
 ## package overview
@@ -65,6 +69,22 @@ Browser-side helpers for hotspot pages:
 - timers
 - labels
 - legacy helpers
+
+### `@svene/juanfi-admin`
+
+Typed client for the `/admin/api/*` routes served by the firmware:
+
+- auth (`validateLogin`, `logout`, X-TOKEN header handling)
+- dashboard (19-field snapshot) + sales detail + reset statistics
+- 65-field system config parser/serializer (preserves tail on partial saves)
+- rates (internet + charging)
+- charging ports
+- active users + kick user
+- system logs
+- controls (restart, nightLight, scanSSID, scanBuyersQr, testInsertCoin)
+- voucher generation + view
+- e-load (settings, catalog, transactions, balance check)
+- firmware OTA + voucher template upload
 
 ## quick example
 
