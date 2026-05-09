@@ -1,0 +1,41 @@
+{
+  "name": "@svene/juanfi-admin",
+  "version": "0.1.0",
+  "description": "Typed admin client for JuanFI v4.x/v5 firmware. Drives /admin/api/* routes with pipe-delimited response parsing.",
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "browser": "./dist/juanfi-admin.min.js",
+  "types": "./dist/index.d.mts",
+  "unpkg": "./dist/juanfi-admin.min.js",
+  "jsdelivr": "./dist/juanfi-admin.min.js",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "scripts": {
+    "build": "npx tsdown && cp dist/juanfi-admin.bundle.iife.js dist/juanfi-admin.min.js && cp dist/juanfi-admin.bundle.iife.js.map dist/juanfi-admin.min.js.map && cp dist/juanfi-admin.min.js dist/juanfi-admin.min.js.map ../../public/js/",
+    "test": "vitest run"
+  },
+  "keywords": [
+    "juanfi",
+    "hotspot",
+    "admin",
+    "piso-wifi",
+    "vendo",
+    "mikrotik"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aidrecabrera/juanfi-toolkit.git",
+    "directory": "packages/admin"
+  },
+  "license": "MIT"
+}
