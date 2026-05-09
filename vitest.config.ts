@@ -6,6 +6,7 @@ export default defineConfig({
     alias: {
       '@svene/juanfi-api': fileURLToPath(new URL('./packages/api/src/index.ts', import.meta.url)),
       '@svene/juanfi-hotspot': fileURLToPath(new URL('./packages/hotspot/src/index.ts', import.meta.url)),
+      '@svene/juanfi-admin': fileURLToPath(new URL('./packages/admin/src/index.ts', import.meta.url)),
     },
   },
   test: {

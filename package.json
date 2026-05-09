@@ -5,8 +5,9 @@
     "packages/*"
   ],
   "scripts": {
+    "build": "npm run build --workspaces --if-present",
     "test": "vitest run",
-    "typecheck": "tsc -b packages/api packages/hotspot"
+    "typecheck": "tsc -b packages/api packages/hotspot packages/admin"
   },
   "devDependencies": {
     "tsdown": "^0.22.0",
