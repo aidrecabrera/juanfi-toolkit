@@ -1,3 +1,11 @@
+<p>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="./docs/logo-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="./docs/logo-light.svg">
+    <img src="./assets/juanfi-enhanced.svg" width="160" alt="TiniTel logo">
+  </picture>
+</p>
+
 # juanfi-toolkit
 
 [![npm version](https://img.shields.io/npm/v/@svene/juanfi-api.svg)](https://www.npmjs.com/package/@svene/juanfi-api)
